@@ -25,9 +25,16 @@ const appDir = join(sourceDir, "app");
 const shotsDir = join(sourceDir, "screenshots");
 
 // Start from a clean output directory so a stale file from an earlier run can
-// never survive into the hand-in.
-rmSync(outputDir, { recursive: true, force: true });
+// never survive into the hand-in. Clear only the CONTENTS, never the directory
+// itself: the grader mounts /output, and removing a mount point fails with
+// EBUSY (rmdir on the mount point) — that uncaught error was the exit-1
+// rejection of the first submission, even though the same program runs fine
+// against an ordinary directory. Emptying the directory leaves the mount
+// point in place and removes every stale entry all the same.
 mkdirSync(outputDir, { recursive: true });
+for (const entry of readdirSync(outputDir)) {
+  rmSync(join(outputDir, entry), { recursive: true, force: true });
+}
 
 cpSync(appDir, join(outputDir, "app"), { recursive: true });
 mkdirSync(join(outputDir, "screenshots"), { recursive: true });
