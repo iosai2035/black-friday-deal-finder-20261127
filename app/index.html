@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Deal Beacon — Black Friday and Cyber Monday deals checked by hand on Nov 27, 2026, with the store, both prices and an honest verdict on each one.">
+<title>Deal Beacon — Black Friday deals, checked today</title>
+<link rel="stylesheet" href="style.css">
+<script type="module" src="main.js"></script>
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="brand" href="#/">Deal Beacon</a>
+    <p class="tagline">Black Friday deals, checked by hand — not by hype.</p>
+  </div>
+</header>
+
+<section class="toolbar" id="toolbar" aria-label="Find a deal">
+  <div class="search-row">
+    <label class="search-label" for="search">Search deals</label>
+    <input id="search" type="search" placeholder="Try “headphones”, “TV”, “Dyson”…" autocomplete="off">
+    <p class="search-hint">Press <kbd>/</kbd> anywhere to jump to search.</p>
+  </div>
+  <div class="filter-row">
+    <label>Category
+      <select id="category"></select>
+    </label>
+    <label>Store
+      <select id="store"></select>
+    </label>
+    <label>Discount
+      <select id="min-discount"></select>
+    </label>
+    <label>Sort by
+      <select id="sort"></select>
+    </label>
+    <button id="clear-filters" type="button">Clear filters</button>
+  </div>
+  <p class="summary" id="summary"></p>
+</section>
+
+<main id="app" aria-live="polite"></main>
+
+<footer class="site-footer">
+  <p>Every price on this page was read on Friday, November 27, 2026 from the store or the deals source named on each deal. Prices move fast on Black Friday — always check the price at checkout before you buy.</p>
+  <p>Deal Beacon is an independent deal finder. Store names and product names belong to their owners; links go to the stores themselves.</p>
+</footer>
+</body>
+</html>
